@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var nav_agent: NavigationAgent2D
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("click"):
+	if event.is_action_pressed("alt_select"):
 		nav_agent.target_position = get_global_mouse_position()
 
 func _physics_process(delta: float) -> void:
