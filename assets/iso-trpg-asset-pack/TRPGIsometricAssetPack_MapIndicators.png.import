@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwyaxfygmfw0c"
-path="res://.godot/imported/Isometric_MedievalFantasy_Tiles.png-753d82573e4c1798d4699c545b2a5286.ctex"
+uid="uid://dqo67lvwimyjl"
+path="res://.godot/imported/TRPGIsometricAssetPack_MapIndicators.png-c3225340eb33404c1c83949c368fb1b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://iso-trpg-asset-pack/Isometric_MedievalFantasy_Tiles.png"
-dest_files=["res://.godot/imported/Isometric_MedievalFantasy_Tiles.png-753d82573e4c1798d4699c545b2a5286.ctex"]
+source_file="res://assets/iso-trpg-asset-pack/TRPGIsometricAssetPack_MapIndicators.png"
+dest_files=["res://.godot/imported/TRPGIsometricAssetPack_MapIndicators.png-c3225340eb33404c1c83949c368fb1b1.ctex"]
 
 [params]
 

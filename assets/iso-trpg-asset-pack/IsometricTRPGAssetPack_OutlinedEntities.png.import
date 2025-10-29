@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dec5u83obuqo6"
-path="res://.godot/imported/IsometricTRPGAssetPack_OutlinedEntities.png-8af3d73d34bd60dc7d5f34f5b22d01b9.ctex"
+path="res://.godot/imported/IsometricTRPGAssetPack_OutlinedEntities.png-e9a5a9279b29518f05d31ed5403c2f7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://iso-trpg-asset-pack/IsometricTRPGAssetPack_OutlinedEntities.png"
-dest_files=["res://.godot/imported/IsometricTRPGAssetPack_OutlinedEntities.png-8af3d73d34bd60dc7d5f34f5b22d01b9.ctex"]
+source_file="res://assets/iso-trpg-asset-pack/IsometricTRPGAssetPack_OutlinedEntities.png"
+dest_files=["res://.godot/imported/IsometricTRPGAssetPack_OutlinedEntities.png-e9a5a9279b29518f05d31ed5403c2f7c.ctex"]
 
 [params]
 

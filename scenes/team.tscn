@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cn4cyidea8hs5"]
 
-[ext_resource type="Script" uid="uid://cyosasb5h4q0r" path="res://team.gd" id="1_cgeqs"]
-[ext_resource type="PackedScene" uid="uid://0pxok6j2sug8" path="res://gold_manager.tscn" id="1_hkunw"]
+[ext_resource type="Script" uid="uid://cyosasb5h4q0r" path="res://scripts/team.gd" id="1_cgeqs"]
+[ext_resource type="PackedScene" uid="uid://0pxok6j2sug8" path="res://scenes/gold_manager.tscn" id="1_hkunw"]
 
 [node name="Team" type="Node2D" node_paths=PackedStringArray("gold_manager")]
 script = ExtResource("1_cgeqs")

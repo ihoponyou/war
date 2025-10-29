@@ -1,9 +1,10 @@
+class_name ObjectPlacer
 extends Node2D
 
-@export var selected_pattern: TileMapPattern
 @export var object_layer: TileMapLayer
+var selected_pattern: TileMapPattern
 
-func place_building(cell: Vector2i, building_pattern: TileMapPattern) -> void:
+func place_pattern(cell: Vector2i, building_pattern: TileMapPattern) -> void:
 	for used_cell in building_pattern.get_used_cells():
 		var mapped_cell := object_layer.map_pattern(cell, used_cell, selected_pattern)
 		var tile_data := object_layer.get_cell_tile_data(mapped_cell)
@@ -21,4 +22,4 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	selected_pattern = object_layer.tile_set.get_pattern(0)
 	var clicked_cell := object_layer.local_to_map(object_layer.get_local_mouse_position())
-	place_building(clicked_cell, selected_pattern)
+	place_pattern(clicked_cell, selected_pattern)

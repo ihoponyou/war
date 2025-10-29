@@ -1,12 +1,7 @@
-[gd_scene load_steps=15 format=4 uid="uid://3xgur6ilwvxj"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bl1p0hp56bcwk"]
 
-[ext_resource type="Texture2D" uid="uid://dwyaxfygmfw0c" path="res://iso-trpg-asset-pack/Isometric_MedievalFantasy_Tiles.png" id="1_80nbo"]
-[ext_resource type="Texture2D" uid="uid://csykaw1ose43o" path="res://iso-trpg-asset-pack/IsometricTRPGAssetPack_Entities.png" id="2_fc0e3"]
-[ext_resource type="Script" uid="uid://dnkr1myd562xy" path="res://fella.gd" id="2_feb5d"]
-[ext_resource type="Script" uid="uid://lit01d3xcap0" path="res://map.gd" id="3_fc0e3"]
-[ext_resource type="Script" uid="uid://dtin3d2di6jed" path="res://object_placer.gd" id="5_7jktm"]
-[ext_resource type="Script" uid="uid://bknj63np5hqc5" path="res://hud.gd" id="6_eow3j"]
-[ext_resource type="PackedScene" uid="uid://cn4cyidea8hs5" path="res://team.tscn" id="7_eow3j"]
+[ext_resource type="Texture2D" uid="uid://dwyaxfygmfw0c" path="res://assets/iso-trpg-asset-pack/Isometric_MedievalFantasy_Tiles.png" id="1_k764t"]
+[ext_resource type="Texture2D" uid="uid://csykaw1ose43o" path="res://assets/iso-trpg-asset-pack/IsometricTRPGAssetPack_Entities.png" id="2_0naqh"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_fc0e3"]
 tile_data = PackedInt32Array(65536, 655360, 3, 1, 655360, 3, 65537, 655360, 3, 65538, 655360, 3)
@@ -18,7 +13,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(0, -4, -8, 0, 0, 4, 8, 
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2o6t"]
-texture = ExtResource("1_80nbo")
+texture = ExtResource("1_k764t")
 texture_region_size = Vector2i(16, 17)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -4)
@@ -243,7 +238,7 @@ texture_region_size = Vector2i(16, 17)
 10:9/0/texture_origin = Vector2i(0, 4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jktm"]
-texture = ExtResource("2_fc0e3")
+texture = ExtResource("2_0naqh")
 texture_region_size = Vector2i(16, 17)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 4)
@@ -510,7 +505,7 @@ texture_region_size = Vector2i(16, 17)
 3:25/0 = 0
 3:25/0/texture_origin = Vector2i(0, 4)
 
-[sub_resource type="TileSet" id="TileSet_feb5d"]
+[resource]
 tile_shape = 1
 tile_offset_axis = 1
 tile_size = Vector2i(16, 8)
@@ -518,91 +513,3 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_e2o6t")
 sources/1 = SubResource("TileSetAtlasSource_7jktm")
 pattern_0 = SubResource("TileMapPattern_fc0e3")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_feb5d"]
-atlas = ExtResource("2_fc0e3")
-region = Rect2(0, 0, 16, 17)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_feb5d"]
-
-[node name="Game" type="Node2D"]
-scale = Vector2(2, 2)
-
-[node name="ground" type="TileMapLayer" parent="." node_paths=PackedStringArray("collidable_tilemap_layers")]
-y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAD/////AAABAAAAAAD//wAAAAABAAAAAAD//wEAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAAAAAEAAAABAAAAAAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAAAAAQAAAABAAAAAAAAAAUAAAABAAAAAAABAP//AAABAAAAAAABAAAAAAABAAAAAAABAAEAAAABAAAAAAABAAIAAAABAAAAAAABAAMAAAABAAAAAAABAAQAAAABAAAAAAABAAUAAAABAAAAAAACAAAAAAABAAAAAAACAAEAAAABAAAAAAACAAIAAAABAAAAAAACAAMAAAABAAAAAAACAAQAAAABAAAAAAACAAUAAAABAAAAAAADAP//AAABAAAAAAADAAAAAAABAAAAAAADAAEAAAABAAAAAAADAAIAAAABAAAAAAADAAMAAAABAAAAAAADAAQAAAABAAAAAAADAAUAAAABAAAAAAAEAAAAAAABAAAAAAAEAAEAAAABAAAAAAAEAAIAAAABAAAAAAAEAAMAAAABAAAAAAAEAAQAAAABAAAAAAAEAAUAAAABAAAAAAAFAP//AAABAAAAAAAFAAAAAAABAAAAAAAFAAEAAAABAAAAAAAFAAIAAAABAAAAAAAFAAMAAAABAAAAAAAFAAQAAAABAAAAAAAFAAUAAAABAAAAAAAGAAAAAAABAAAAAAAGAAEAAAABAAAAAAAGAAIAAAABAAAAAAAGAAMAAAABAAAAAAAGAAQAAAABAAAAAAAGAAUAAAABAAAAAAAHAP//AAABAAAAAAAHAAAAAAABAAAAAAAHAAEAAAABAAAAAAAHAAIAAAABAAAAAAAHAAMAAAABAAAAAAAHAAQAAAABAAAAAAAHAAUAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_feb5d")
-script = ExtResource("3_fc0e3")
-collidable_tilemap_layers = [NodePath("../Objects/buildings")]
-
-[node name="Objects" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="buildings" type="TileMapLayer" parent="Objects"]
-y_sort_enabled = true
-tile_map_data = PackedByteArray("AAADAAAAAAABAAgAAAAFAP//AAABAAgAAAAGAAAAAAABAAgAAAAHAAAAAAABAAgAAAAHAAEAAAABAAgAAAAGAAIAAAABAAgAAAAEAAEAAAABAAgAAAADAAEAAAABAAgAAAAFAAIAAAABAAgAAAA=")
-tile_set = SubResource("TileSet_feb5d")
-collision_enabled = false
-collision_visibility_mode = 1
-navigation_enabled = false
-
-[node name="fella" type="CharacterBody2D" parent="Objects" node_paths=PackedStringArray("nav_agent")]
-script = ExtResource("2_feb5d")
-nav_agent = NodePath("NavigationAgent2D")
-
-[node name="Sprite2D" type="Sprite2D" parent="Objects/fella"]
-y_sort_enabled = true
-position = Vector2(0, -4)
-texture = SubResource("AtlasTexture_feb5d")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/fella"]
-scale = Vector2(0.3, 0.3)
-shape = SubResource("CircleShape2D_feb5d")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Objects/fella"]
-path_desired_distance = 4.0
-target_desired_distance = 2.0
-avoidance_enabled = true
-radius = 4.0
-debug_enabled = true
-
-[node name="ObjectPlacer" type="Node2D" parent="." node_paths=PackedStringArray("object_layer")]
-script = ExtResource("5_7jktm")
-object_layer = NodePath("../Objects/buildings")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HUD" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("money_giver", "money_label", "player_team")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("6_eow3j")
-money_giver = NodePath("Button")
-money_label = NodePath("Label")
-player_team = NodePath("../../PlayerTeam")
-
-[node name="Button" type="Button" parent="CanvasLayer/HUD"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -71.0
-offset_bottom = 31.0
-grow_horizontal = 0
-text = "+money"
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 62.0
-grow_vertical = 0
-text = "monye: "
-
-[node name="PlayerTeam" parent="." instance=ExtResource("7_eow3j")]
