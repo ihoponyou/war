@@ -7,8 +7,13 @@ const MONEY_LABEL_FORMAT = "monye: {value}"
 @export var player_team: Team
 
 func _ready() -> void:
-	money_giver.pressed.connect(_update_label)
+	money_giver.pressed.connect(_on_giver_pressed)
 
-func _update_label():
+	_update_label(player_team.gold_manager.amount)
+	player_team.gold_manager.amount_changed.connect(_update_label)
+
+func _on_giver_pressed() -> void:
 	player_team.give_money(5)
-	money_label.text = MONEY_LABEL_FORMAT.format({"value": player_team.money})
+
+func _update_label(value: int):
+	money_label.text = MONEY_LABEL_FORMAT.format({"value": value})
