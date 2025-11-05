@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Building" load_steps=3 format=3 uid="uid://wcbtpxcbd0vf"]
+
+[ext_resource type="TileMapPattern" uid="uid://cp2nwaeltk610" path="res://resources/patterns/1.tres" id="1_3kmhu"]
+[ext_resource type="Script" uid="uid://c67chis4w3utl" path="res://scripts/building.gd" id="1_crikn"]
+
+[resource]
+resource_name = "barracks"
+script = ExtResource("1_crikn")
+health = 5
+gold_cost = 5
+birth_rate = 4
+name = "Barracks"
+pattern = ExtResource("1_3kmhu")
+metadata/_custom_type_script = "uid://c67chis4w3utl"

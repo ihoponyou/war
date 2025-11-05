@@ -5,9 +5,9 @@
 [ext_resource type="Script" uid="uid://dnkr1myd562xy" path="res://scripts/fella.gd" id="2_feb5d"]
 [ext_resource type="Script" uid="uid://lit01d3xcap0" path="res://scripts/map.gd" id="3_fc0e3"]
 [ext_resource type="Script" uid="uid://dtin3d2di6jed" path="res://scripts/object_placer.gd" id="5_7jktm"]
-[ext_resource type="Script" uid="uid://bknj63np5hqc5" path="res://scripts/hud.gd" id="6_eow3j"]
+[ext_resource type="Resource" uid="uid://wcbtpxcbd0vf" path="res://resources/buildings/barracks.tres" id="6_gee14"]
+[ext_resource type="PackedScene" uid="uid://jjjjahlt8wc7" path="res://scenes/hud.tscn" id="6_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://cn4cyidea8hs5" path="res://scenes/team.tscn" id="7_eow3j"]
-[ext_resource type="Script" uid="uid://ckwwjty7kfhbc" path="res://scenes/cool_button.gd" id="7_gee14"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_feb5d"]
 atlas = ExtResource("2_fc0e3")
@@ -20,7 +20,7 @@ scale = Vector2(2, 2)
 
 [node name="ground" type="TileMapLayer" parent="." node_paths=PackedStringArray("collidable_tilemap_layers")]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAD/////AAABAAAAAAD//wAAAAABAAAAAAD//wEAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAAAAAEAAAABAAAAAAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAAAAAQAAAABAAAAAAAAAAUAAAABAAAAAAABAP//AAABAAAAAAABAAAAAAABAAAAAAABAAEAAAABAAAAAAABAAIAAAABAAAAAAABAAMAAAABAAAAAAABAAQAAAABAAAAAAABAAUAAAABAAAAAAACAAAAAAABAAAAAAACAAEAAAABAAAAAAACAAIAAAABAAAAAAACAAMAAAABAAAAAAACAAQAAAABAAAAAAACAAUAAAABAAAAAAADAP//AAABAAAAAAADAAAAAAABAAAAAAADAAEAAAABAAAAAAADAAIAAAABAAAAAAADAAMAAAABAAAAAAADAAQAAAABAAAAAAADAAUAAAABAAAAAAAEAAAAAAABAAAAAAAEAAEAAAABAAAAAAAEAAIAAAABAAAAAAAEAAMAAAABAAAAAAAEAAQAAAABAAAAAAAEAAUAAAABAAAAAAAFAP//AAABAAAAAAAFAAAAAAABAAAAAAAFAAEAAAABAAAAAAAFAAIAAAABAAAAAAAFAAMAAAABAAAAAAAFAAQAAAABAAAAAAAFAAUAAAABAAAAAAAGAAAAAAABAAAAAAAGAAEAAAABAAAAAAAGAAIAAAABAAAAAAAGAAMAAAABAAAAAAAGAAQAAAABAAAAAAAGAAUAAAABAAAAAAAHAP//AAABAAAAAAAHAAAAAAABAAAAAAAHAAEAAAABAAAAAAAHAAIAAAABAAAAAAAHAAMAAAABAAAAAAAHAAQAAAABAAAAAAAHAAUAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAD/////AAABAAAAAAD//wAAAAABAAAAAAD//wEAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAAAAAEAAAABAAAAAAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAAAAAQAAAABAAAAAAAAAAUAAAABAAAAAAABAP//AAABAAAAAAABAAAAAAABAAAAAAABAAEAAAABAAAAAAABAAIAAAABAAAAAAABAAMAAAABAAAAAAABAAQAAAABAAAAAAABAAUAAAABAAAAAAACAAAAAAABAAAAAAACAAEAAAABAAAAAAACAAIAAAABAAAAAAACAAMAAAABAAAAAAACAAQAAAABAAAAAAACAAUAAAABAAAAAAADAP//AAABAAAAAAADAAAAAAABAAAAAAADAAEAAAABAAAAAAADAAIAAAABAAAAAAADAAMAAAABAAAAAAADAAQAAAABAAAAAAADAAUAAAABAAAAAAAEAAAAAAABAAAAAAAEAAEAAAABAAAAAAAEAAIAAAABAAAAAAAEAAMAAAABAAAAAAAEAAQAAAABAAAAAAAEAAUAAAABAAAAAAAFAP//AAABAAAAAAAFAAAAAAABAAAAAAAFAAEAAAABAAAAAAAFAAIAAAABAAAAAAAFAAMAAAABAAAAAAAFAAQAAAABAAAAAAAFAAUAAAABAAAAAAAGAAAAAAABAAAAAAAGAAEAAAABAAAAAAAGAAIAAAABAAAAAAAGAAMAAAABAAAAAAAGAAQAAAABAAAAAAAGAAUAAAABAAAAAAAHAP//AAABAAAAAAAHAAAAAAABAAAAAAAHAAEAAAABAAAAAAAHAAIAAAABAAAAAAAHAAMAAAABAAAAAAAHAAQAAAABAAAAAAAHAAUAAAABAAAAAAAJAAUAAAABAAAAAAAIAAUAAAABAAAAAAAJAAQAAAABAAAAAAAIAAQAAAABAAAAAAAJAAMAAAABAAAAAAAIAAMAAAABAAAAAAAJAAIAAAABAAAAAAAIAAIAAAABAAAAAAAJAAEAAAABAAAAAAAIAAEAAAABAAAAAAAJAAAAAAABAAAAAAAIAAAAAAABAAAAAAAJAP//AAABAAAAAAAKAAUAAAABAAAAAAALAAUAAAABAAAAAAALAAQAAAABAAAAAAAKAAQAAAABAAAAAAALAAMAAAABAAAAAAAKAAMAAAABAAAAAAAKAAIAAAABAAAAAAAKAAEAAAABAAAAAAAKAAAAAAABAAAAAAALAP//AAABAAAAAAALAAAAAAABAAAAAAALAAEAAAABAAAAAAALAAIAAAABAAAAAAA=")
 tile_set = ExtResource("1_u5sy4")
 script = ExtResource("3_fc0e3")
 collidable_tilemap_layers = [NodePath("../Objects/buildings")]
@@ -30,7 +30,7 @@ y_sort_enabled = true
 
 [node name="buildings" type="TileMapLayer" parent="Objects"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAADAAAAAAABAAgAAAAFAP//AAABAAgAAAAGAAAAAAABAAgAAAAHAAAAAAABAAgAAAAHAAEAAAABAAgAAAAGAAIAAAABAAgAAAAEAAEAAAABAAgAAAADAAEAAAABAAgAAAAFAAIAAAABAAgAAAA=")
+tile_map_data = PackedByteArray("AAADAAAAAAABAAgAAAAFAP//AAABAAgAAAAGAAAAAAABAAgAAAAHAAAAAAABAAgAAAAHAAEAAAABAAgAAAAGAAIAAAABAAgAAAAEAAEAAAABAAgAAAADAAEAAAABAAgAAAAFAAIAAAABAAgAAAAHAAUAAAAEAAQAAAA=")
 tile_set = ExtResource("1_u5sy4")
 collision_enabled = false
 collision_visibility_mode = 1
@@ -56,51 +56,20 @@ avoidance_enabled = true
 radius = 4.0
 debug_enabled = true
 
-[node name="ObjectPlacer" type="Node2D" parent="." node_paths=PackedStringArray("object_layer")]
+[node name="ObjectPlacer" type="Node2D" parent="." node_paths=PackedStringArray("preview_layer", "object_layer")]
 script = ExtResource("5_7jktm")
+preview_layer = NodePath("../CanvasLayer/placement_preview")
 object_layer = NodePath("../Objects/buildings")
+selected_building = ExtResource("6_gee14")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("money_giver", "money_label", "player_team")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("6_eow3j")
-money_giver = NodePath("Button")
-money_label = NodePath("Label")
+[node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player_team") instance=ExtResource("6_u5sy4")]
 player_team = NodePath("../../PlayerTeam")
 
-[node name="Button" type="Button" parent="CanvasLayer/HUD"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -71.0
-offset_bottom = 31.0
-grow_horizontal = 0
-text = "+money"
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 62.0
-grow_vertical = 0
-text = "monye: "
-
-[node name="CoolButton" type="Control" parent="CanvasLayer/HUD"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("7_gee14")
-metadata/_custom_type_script = "uid://ckwwjty7kfhbc"
+[node name="placement_preview" type="TileMapLayer" parent="CanvasLayer"]
+scale = Vector2(2, 2)
+tile_set = ExtResource("1_u5sy4")
 
 [node name="PlayerTeam" parent="." node_paths=PackedStringArray("object_placer") instance=ExtResource("7_eow3j")]
 object_placer = NodePath("../ObjectPlacer")

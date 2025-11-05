@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://jjjjahlt8wc7"]
+
+[ext_resource type="Script" uid="uid://bknj63np5hqc5" path="res://scripts/hud.gd" id="1_ahhtf"]
+
+[node name="HUD" type="Control" node_paths=PackedStringArray("money_giver", "money_label", "building_info_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ahhtf")
+money_giver = NodePath("Button")
+money_label = NodePath("Label")
+building_info_label = NodePath("SelectedBuildingInfo")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -71.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "+money"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 62.0
+grow_vertical = 0
+text = "monye: "
+
+[node name="SelectedBuildingInfo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
